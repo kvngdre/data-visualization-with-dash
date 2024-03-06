@@ -1,0 +1,26 @@
+.header-title {
+  font-size: 5rem;
+  color: rgb(60, 50, 50);
+}
+
+.header-description {
+  font-size: 1.8rem;
+}
+
+/* Base Styles
+----------------------------------------- */
+/* ⚠️ NOTE:
+html is set to 62.5%, this is such that all rem measurements throughout skeleton
+are based on 10px sizing. So essentially, 1.5rem = 15px.
+*/
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  line-height: 1.6;
+  font-family: "Open Sans", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+  color: rgb(50, 50, 50);
+}
