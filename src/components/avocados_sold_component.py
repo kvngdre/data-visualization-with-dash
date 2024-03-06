@@ -5,9 +5,9 @@ from data import fetch_data
 data = fetch_data()
 
 component = html.Div(
-    children=[
-        html.Div(
-            children=dcc.Graph(
+    children=dcc.Graph(
+            id="volume-chart",
+            config={"displayModeBar": False},
             figure={
                 "data": [
                     {
@@ -16,10 +16,17 @@ component = html.Div(
                         "type": "lines"
                     }
                 ],
-                "layout": {"title": "Avocados Sold"},
+                "layout": {
+                    "title": {
+                        "text": "Avocados Sold",
+                        "x": 0.05,
+                        "xanchor": "left"
+                        },
+                        "xaxis": {"fixedrange": True},
+                        "yaxis": {"fixedrange": True},
+                        "colorway": ["#E12D39"],
+                    },
                 }
             ),
             className="card"
-        )
-    ]
-)
+    )
