@@ -1,37 +1,37 @@
 # Import packages
 from dash import Dash, dcc, html
 
-from components import average_avocado_price_component
+from components import (average_avocado_price_component,
+                        avocados_sold_component, header_component)
 from data import fetch_data
 
 # Read data
 data = fetch_data()
 
 #Initialize the app
-app = Dash(__name__)
+external_stylesheets = [
+    {
+        "href": (
+            "https://fonts.googleapis.com/css2?"
+            "family=Lato:wght@400;700&display=swap"
+        ),
+        "rel": "stylesheet",
+    },
+]
+app = Dash(__name__, external_stylesheets=external_stylesheets)
+app.title = "Avocado Analytics: Understand Your Avocados!"
 
 # App layout
 app.layout = html.Div(
     children = [
-        html.H1(children="Avocado Analytics", className="header-title"),
-        html.P(children="Analyze the behaviour of avocado prices and the number of avocados sold in the US between 2015 and 2018", 
-               className="header-description",
-        ),
+        # Add components
+        header_component.component,
 
-        average_avocado_price_component.line_graph,
-        html.Hr(),
+        average_avocado_price_component.component,
 
-        dcc.Graph(figure={
-            "data": [
-                {
-                    "x": data["Date"],
-                    "y": data["Total Volume"],
-                    "type": "lines"
-                }
-            ],
-            "layout": {"title": "Avocados Sold"},
-        })
-    ]
+        avocados_sold_component.component
+    ],
+    className="header"
 )
 
 
