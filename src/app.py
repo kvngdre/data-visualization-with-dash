@@ -22,10 +22,10 @@ external_stylesheets = [
     },
 ]
 app = Dash(__name__, external_stylesheets=external_stylesheets)
-app.title = "Avocado Analytics: Understand Your Avocados!"
+app.title = "Dami Analytics"
 
 # Find unique regions and avocado_types
-regions = data["region"].sort_values().unique()
+plants = data["plant"].sort_values().unique()
 avocado_types = data["type"].sort_values().unique()
 min_date_allowed = data["Date"].min().date()
 max_date_allowed = data["Date"].max().date()
@@ -39,7 +39,7 @@ app.layout = html.Div(
         # Menu Component
         html.Div(
             children=[
-                drop_down_component.build("Region", "region-filter", "Albany", regions),
+                drop_down_component.build("Region", "region-filter", "Albany", plants),
                 drop_down_component.build(
                     "Type", "type-filter", "conventional", avocado_types
                 ),
