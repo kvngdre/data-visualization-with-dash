@@ -75,21 +75,3 @@ body {
   font-weight: bold;
   color: #079a82;
 }
-
-/* Base Styles
------------------------------------------ */
-/* ⚠️ NOTE:
-html is set to 62.5%, this is such that all rem measurements throughout skeleton
-are based on 10px sizing. So essentially, 1.5rem = 15px.
-*/
-
-html {
-  font-size: 62.5%;
-}
-
-body {
-  line-height: 1.6;
-  font-family: "Open Sans", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial,
-    sans-serif;
-  color: rgb(50, 50, 50);
-}
